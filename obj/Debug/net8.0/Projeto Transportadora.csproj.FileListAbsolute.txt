@@ -140,3 +140,4 @@ D:\Guilherme\Projeto Transportadora\bin\Debug\net8.0\runtimes\win\lib\net6.0\Sys
 D:\Guilherme\Projeto Transportadora\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Guilherme\Projeto Transportadora\obj\Debug\net8.0\Projeto Transportadora.csproj.AssemblyReference.cache
 D:\Guilherme\Projeto Transportadora\obj\Debug\net8.0\Projeto .12BA29AB.Up2Date
+D:\Guilherme\Projeto Transportadora\obj\Debug\net8.0\Projeto Transportadora.sourcelink.json
