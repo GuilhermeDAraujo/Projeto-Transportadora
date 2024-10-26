@@ -11,6 +11,8 @@ builder.Services.AddDbContext<TransportadoraContext>(options =>
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ICaminhaoServices>();
+builder.Services.AddScoped<INotaFiscalServices>();
+builder.Services.AddScoped<IEstoqueService>();
 
 var app = builder.Build();
 

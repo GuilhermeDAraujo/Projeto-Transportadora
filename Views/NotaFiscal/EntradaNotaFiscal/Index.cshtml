@@ -1,0 +1,66 @@
+@model IEnumerable<Projeto_Transportadora.Models.Estoque>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entradas Realizadas Hoje</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Entradas Realizadas Hoje</h1>
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th class="text-center">Numero da Nota Fiscal</th>
+                    <th class="text-center">Endereço de Entrega</th>
+                    <th class="text-center">Data do Faturamento</th>
+                    <th class="text-center">Entrada no Estoque</th>
+                    <th class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var dataAtual = DateTime.Now.Date;
+                }
+                @foreach (var item in Model.Where(x => x.DataDaEntrada == dataAtual))
+                {
+                    <tr>
+                        <td class="text-center">
+                            @item.NotaFiscal.NumeroNotaFiscal
+                        </td>
+                        <td class="text-center">
+                            @item.NotaFiscal.EnderecoFaturado
+                        </td>
+                        <td class="text-center">
+                            @item.NotaFiscal.DataDoFaturamento.ToString("dd/MM/yyyy")
+                        </td>
+                        <td class="text-center">
+                            @item.DataDaEntrada
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="Delete" asp-route-id="@item.NotaFiscal.id" class="btn btn-danger">Deletar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a asp-action="Create" class="btn btn-primary">Nova Nota Fiscal</a>
+            <a asp-action="Menu" asp-controller="Home" class="btn btn-success">Voltar</a>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
